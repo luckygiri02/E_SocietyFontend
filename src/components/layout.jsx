@@ -7,7 +7,7 @@ import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 import './media.css'
 import './Layout.css'; // External CSS
-
+//fix layout filename 
 const Layout = () => {
   return (
     <div className="layout1">
