@@ -528,6 +528,7 @@ const AddPropertyPage = () => {
               <label className="file-upload-button">
                 Add Images
                 <input
+                className='inputfilechoice'
                   type="file"
                   accept="image/*"
                   multiple
@@ -588,6 +589,7 @@ const AddPropertyPage = () => {
               <label className="file-upload-button">
                 Add Videos
                 <input
+                className='inputfilechoice'
                   type="file"
                   accept="video/*"
                   multiple

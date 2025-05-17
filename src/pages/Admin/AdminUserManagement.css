@@ -285,3 +285,21 @@
 .view-document-btn:hover {
   background: #3e8e41;
 }
+
+@media (max-width: 1242px) {
+
+  .admin-user-management{
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 426px) {
+
+ .user-list-panel{
+
+width: 274px;
+ }
+}
+
+

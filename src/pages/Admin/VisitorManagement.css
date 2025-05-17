@@ -219,3 +219,11 @@
     max-width: 300px;
     line-height: 1.5;
   }
+
+
+  @media (max-width: 959px) {
+    .visitor-management-container{
+      flex-direction: column;
+    }
+  
+  }

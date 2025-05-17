@@ -90,3 +90,22 @@
     margin-bottom: 1rem;
   }
   
+  @media (max-width: 790px) {
+
+.sidebar1{
+
+  height: 200px !important;
+  width: auto;
+  min-height: 22vh;
+}
+.complaint-page{
+  flex-direction: column;
+}
+.inputfileclass{
+  width:70% !important ;
+}
+.classforattactment{
+  flex-direction: column;
+}
+
+  }

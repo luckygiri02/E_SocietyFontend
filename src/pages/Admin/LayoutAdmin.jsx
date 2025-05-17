@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
+import { FiMenu } from 'react-icons/fi'; // Hamburger icon
+
 import AdminDashboard from './AdminDashboard';
 import UserManagement from './UserManagement';
 import EventManagement from './EventManagement';
@@ -13,17 +15,16 @@ import './LayoutAdmin.css';
 
 const LayoutAdmin = () => {
   const [admin, setAdmin] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     async function fetchAdmin() {
       try {
         const res = await fetch(`${import.meta.env.VITE_BaseURL_API}/api/items`);
         const data = await res.json();
-
         const adminUser = data.find(
           user => user.role && user.role.toLowerCase() === 'admin'
         );
-
         if (adminUser) {
           setAdmin(adminUser);
         }
@@ -31,7 +32,6 @@ const LayoutAdmin = () => {
         console.error('Error fetching admin:', error);
       }
     }
-
     fetchAdmin();
   }, []);
 
@@ -39,7 +39,13 @@ const LayoutAdmin = () => {
 
   return (
     <div className="admin-container">
-      <aside className="admin-sidebar">
+      {/* Hamburger Icon */}
+      <button className="hamburger-btn" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+        <FiMenu size={24} />
+      </button>
+
+      {/* Sidebar */}
+      <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="admin-header">
           {profileImage ? (
             <img src={profileImage} alt="Admin Profile" className="admin-logo" />
@@ -47,22 +53,23 @@ const LayoutAdmin = () => {
             <img src="/logo192.png" alt="Admin" className="admin-logo" />
           )}
           <div className="admin-name-role">
-            
             <p className="admin-fullname">{admin?.fullName || ''}</p>
             <p className="admin-subtitle">Society Admin</p>
           </div>
         </div>
         <nav className="admin-nav">
-          <NavLink to="/admin" end className="nav-link">🏠 Dashboard</NavLink>
-          <NavLink to="/admin/events" className="nav-link">📅 Events</NavLink>
-          <NavLink to="/admin/users" className="nav-link">🧑‍🤝‍🧑 Users</NavLink>
-          <NavLink to="/admin/complaints" className="nav-link">🛠 Complaints</NavLink>
-          <NavLink to="/admin/notices" className="nav-link">📢 Notices</NavLink>
-          <NavLink to="/admin/payments" className="nav-link">💳 Payments</NavLink>
-          <NavLink to="/admin/properties" className="nav-link">🧍 Visitor Records</NavLink>
-          <NavLink to="/admin/Onrentsell" className="nav-link">🏘️ Properties on rent/sell</NavLink>
+          <NavLink to="/admin" end className="nav-link" onClick={() => setIsSidebarOpen(false)}>🏠 Dashboard</NavLink>
+          <NavLink to="/admin/events" className="nav-link" onClick={() => setIsSidebarOpen(false)}>📅 Events</NavLink>
+          <NavLink to="/admin/users" className="nav-link" onClick={() => setIsSidebarOpen(false)}>🧑‍🤝‍🧑 Users</NavLink>
+          <NavLink to="/admin/complaints" className="nav-link" onClick={() => setIsSidebarOpen(false)}>🛠 Complaints</NavLink>
+          <NavLink to="/admin/notices" className="nav-link" onClick={() => setIsSidebarOpen(false)}>📢 Notices</NavLink>
+          <NavLink to="/admin/payments" className="nav-link" onClick={() => setIsSidebarOpen(false)}>💳 Payments</NavLink>
+          <NavLink to="/admin/properties" className="nav-link" onClick={() => setIsSidebarOpen(false)}>🧍 Visitor Records</NavLink>
+          <NavLink to="/admin/Onrentsell" className="nav-link" onClick={() => setIsSidebarOpen(false)}>🏘️ Properties on rent/sell</NavLink>
         </nav>
       </aside>
+
+      {/* Main Content */}
       <div className="admin-scroll-wrapper">
         <main className="admin-main">
           <Routes>

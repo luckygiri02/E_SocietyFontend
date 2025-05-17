@@ -102,14 +102,14 @@ const ComplaintPage = () => {
 
   return (
     <div className="complaint-page">
-      <aside className="sidebar1">
+      <div className="sidebar1">
         <h2>SocietyName</h2>
         <nav>
           <a href="/homepage">Home Page</a>
           <a href="/complaint-history">History</a>
           <a href="/complaints-reply">Complaints Reply</a>
         </nav>
-      </aside>
+      </div>
 
       <main className="form-section">
         <h2>
@@ -183,9 +183,10 @@ const ComplaintPage = () => {
             />
           </div>
 
-          <div className="row">
+          <div className="row classforattactment">
             <label>Attach any evidence (Optional)</label>
             <input
+            className="inputfileclass"
               type="file"
               name="file"
               onChange={handleFileChange}

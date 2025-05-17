@@ -27,7 +27,7 @@
   flex: 1;
   padding: 1rem;
   gap: 1.5rem;
-  margin-top: var(--navbar-height);
+  /* margin-top: var(--navbar-height); */
   margin-bottom: var(--footer-height);
 }
 
