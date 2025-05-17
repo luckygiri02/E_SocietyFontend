@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import EventPhoto from './EventPhoto';
+import EventPhoto from './Eventphoto';
 import NoticeTicker from './NoticeTicker';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
