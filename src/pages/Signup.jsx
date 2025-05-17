@@ -85,7 +85,7 @@ const Signup = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-debugger;
+
       if (!res.ok) throw new Error("Failed to submit visitor");
 
       setMessage("✅ Visitor entry submitted!");

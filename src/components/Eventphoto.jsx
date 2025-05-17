@@ -10,7 +10,7 @@ const EventPhoto = () => {
   useEffect(() => {
     const fetchLatestEvent = async () => {
       try {
-        debugger;
+     
         setLoading(true);
         const response = await fetch(`${import.meta.env.VITE_BaseURL_API}/api/events`);
         
