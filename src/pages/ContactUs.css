@@ -1,0 +1,128 @@
+.contact-us {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .contact-us {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .contact-us-header {
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    padding: 30px 20px;
+    color: #ffffff;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .contact-us-header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .contact-us-header p {
+    font-size: 14px;
+    color: #ffffff; /* Solid white for contrast */
+    margin: 0 auto;
+    max-width: 500px;
+    opacity: 1 !important; /* Force full visibility */
+  }
+  
+  
+  .contact-us h2 {
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #060000;
+  }
+  
+  
+  .contact-us h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .contact-us p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
+  }
+  
+  .contact-us h2 {
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #323030;
+    font-weight: 700;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    font-weight: 400;
+    justify-content: center;
+  }
+  
+  .contact-card {
+    background: linear-gradient(to right, #3f3f47, #8d8e8f);
+
+    padding: 20px;
+    font-weight: 700;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  }
+  
+  .contact-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 3px solid #fff;
+  }
+  
+  .contact-card h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .contact-card p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #ddd;
+    font-weight: 400;
+  }
+  .contact-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    background-color: #f0f0f0; /* Fallback background */
+  }
+  
+  .contact-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

@@ -1,0 +1,97 @@
+.events-page-wrapper {
+  padding: 20px;
+  background-color: #e0f7fa;
+}
+
+.events-title,
+.events-subtitle {
+  text-align: center;
+  color: #0b3558;
+  margin-top: 20px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+
+.event-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+  padding: 20px;
+  width: 90%;
+  max-width: 650px;
+  border: 1px solid #d0d0d0;
+}
+
+.event-title {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #0b3558;
+}
+
+.event-media-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.media-item {
+  height: 180px;
+  width: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.media-item video {
+  height: 180px;
+  width: auto;
+}
+
+.event-details {
+  margin-top: 10px;
+}
+
+.detail-item {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.detail-icon {
+  margin-right: 8px;
+}
+
+.participate-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0b3558;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.participate-btn:hover {
+  background-color: #06233f;
+}
+
+.loading,
+.error,
+.no-events {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+}

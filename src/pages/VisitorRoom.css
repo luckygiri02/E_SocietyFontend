@@ -1,0 +1,42 @@
+.visitor-room-page {
+    padding: 30px;
+    background-color: #f4f9ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .visitor-room-page h1 {
+    text-align: center;
+    color: #003b7a;
+    margin-bottom: 20px;
+  }
+  
+  .visitor-note {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+  }
+  
+  .visitor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .visitor-card {
+    background-color: #fff;
+    padding: 20px;
+    border-left: 6px solid #004c97;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .visitor-card h3 {
+    margin: 0 0 10px 0;
+    color: #002e5b;
+  }
+  
+  .visitor-card p {
+    margin: 4px 0;
+    color: #555;
+  }
+  

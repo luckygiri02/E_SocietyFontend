@@ -1,0 +1,108 @@
+/* Base Layout */
+.landing {
+    font-size: 1.1rem;
+    padding: 2rem;
+    background-color: rgb(197, 200, 200);;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header Styling */
+  .landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00a6c7;
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .landing-header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .landing-header nav button {
+    font-size: 1rem;
+    margin-left: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    color: #00a6c7;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .landing-header nav button:hover {
+    background-color: #e0f7fb;
+  }
+  
+  /* Main Section */
+  .landing-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .landing-main h2 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
+  .landing-main p {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .image-carousel {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .image-carousel img {
+    width: 30%;
+    min-width: 280px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .image-carousel img:hover {
+    transform: scale(1.05);
+  }
+  .demo-video-section {
+    display: flex;
+    background-color: aliceblue;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .demo-video-section h3 {
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .demo-video {
+    width: 90%;
+    max-width: 960px;
+    background-color: rgb(197, 200, 200);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  

@@ -1,0 +1,178 @@
+/* Footer.css - Enhanced Responsive Version */
+
+.footer {
+  background: linear-gradient(135deg, #3a3a40, #6d6e70);
+  color: #f8f9fa;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2.5rem;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.footer-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* Fluid scaling for ultra-small devices (200px to 320px) */
+@media (min-width: 200px) {
+  .footer {
+    padding: calc(0.5rem + (1 - 0.5) * ((100vw - 200px) / 120));
+  }
+  
+  .footer-text {
+    font-size: calc(0.7rem + (0.875 - 0.7) * ((100vw - 200px) / 120));
+  }
+}
+
+/* Extra small phones (up to 320px) */
+@media (max-width: 320px) {
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .footer-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+}
+
+/* Small phones (321px to 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .footer {
+    padding: 1rem 0.75rem;
+  }
+  
+  .footer-text {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Medium phones (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    padding: 1.25rem 1rem;
+  }
+  
+  .footer-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Tablets (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .footer-text {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Laptops (1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .footer {
+    padding: 1.75rem 1.5rem;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+  }
+}
+
+/* Large desktops (1441px and up) */
+@media (min-width: 1441px) {
+  .footer {
+    padding: 2rem;
+  }
+  
+  .footer-text {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Ultra-wide screens (1920px and up) */
+@media (min-width: 1920px) {
+  .footer-container {
+    max-width: 1600px;
+  }
+  
+  .footer-text {
+    font-size: 1.125rem;
+  }
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: linear-gradient(135deg, #2d2d32, #4a4a4e);
+    color: #e9ecef;
+  }
+}
+
+/* Print styles */
+@media print {
+  .footer {
+    background: none;
+    color: #000;
+    box-shadow: none;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer::before {
+    display: none;
+  }
+  
+  .footer-text {
+    text-shadow: none;
+    font-size: 10pt;
+  }
+}
+
+/* Animation for interactive elements */
+.footer-text {
+  transition: color 0.3s ease;
+}
+
+.footer:hover .footer-text {
+  color: #fff;
+}
+
+/* Accessibility improvements */
+.footer:focus-within {
+  outline: 2px solid #4d90fe;
+  outline-offset: -2px;
+}

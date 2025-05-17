@@ -1,0 +1,176 @@
+.resident-sidebar {
+  width: 250px;
+  background-color: #f7f7f7;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #e5e5e5;
+}
+
+.resident-profile-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.resident-profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  margin: 0 auto 10px;
+  border: 2px solid #ccc;
+}
+
+.resident-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.resident-profile-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 6px;
+}
+
+.resident-profile-flat {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.resident-family-list {
+  width: 100%;
+}
+
+.resident-family-title1 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202020;
+  margin-bottom: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+.resident-family-members1 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resident-family-member1 {
+  margin-bottom: 8px;
+}
+
+.resident-family-member1 > div:first-child {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  background-color: #0f0f0f;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resident-family-member1 > div:first-child:hover {
+  background-color: #e0e0e0;
+}
+
+.family-member-details1 {
+  color: #1a1a1a;
+  margin-top: 6px;
+  background-color: #fafafa;
+  padding: 10px;
+  border-left: 3px solid #3182ce;
+  border-radius: 4px;
+  animation: fadeSlide 0.3s ease-in-out;
+  font-size: 13px;
+  color: #444;
+}
+
+.family-member-details1 div {
+  margin-bottom: 4px;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Mobile responsiveness for resident sidebar and profile */
+@media (max-width: 768px) {
+  .resident-sidebar {
+    width: 100%;
+    height: auto;
+    padding: 16px 12px;
+    box-shadow: none;
+    border-right: none;
+    overflow-y: visible;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .resident-profile-section {
+    text-align: left;
+    margin-bottom: 12px;
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .resident-profile-image {
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    border: 1.5px solid #ccc;
+  }
+
+  .resident-profile-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 0;
+  }
+
+  .resident-profile-flat {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  .resident-family-list {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .resident-family-title1 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .resident-family-member1 > div:first-child {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .family-member-details1 {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

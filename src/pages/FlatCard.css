@@ -1,0 +1,242 @@
+/* Property Card Layout */
+.property-card {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+  width: 300px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* Property Image Container */
+.property-image-container {
+  position: relative;
+}
+
+.property-image-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Media Badges - Updated to remove black background */
+.media-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Property Details - All in one line */
+.property-details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.property-details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.property-details h3 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.property-details p {
+  font-size: 14px;
+  margin: 0;
+  color: #030303;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.property-details strong {
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Price and Type styling */
+.property-price {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.property-type {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.property-type.sale {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+/* Media count styling */
+.media-count {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Property Grid (Flex layout for responsive design) */
+.property-grid {
+  /* display: flex; */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+/* Modal Overlay (unchanged) */
+.property-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.popup-content {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  animation: slideUp 0.4s ease;
+}
+
+/* Animations (unchanged) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Close Icon (unchanged) */
+.close-popup {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-popup:hover {
+  color: #ff4c4c;
+}
+
+/* Modal Image and Video Section (unchanged) */
+.popup-images img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Media Badges in Modal (unchanged) */
+.popup-images .media-badges {
+  display: none;
+}
+
+/* Ensure Video Handling is Responsive (unchanged) */
+.popup-videos video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive Design for Property Card Layout */
+@media (max-width: 768px) {
+  .property-card {
+    width: 100%;
+    max-width: 350px; /* Reduce the width of the cards for smaller screens */
+  }
+
+  .property-grid {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .property-price {
+    font-size: 14px;
+  }
+
+  .property-details h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-card {
+    width: 100%;
+    max-width: 300px; /* Full-width cards on small screens */
+  }
+
+  .property-details p {
+    font-size: 12px;
+  }
+
+  .property-details-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .popup-content {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .property-details h3 {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,139 @@
+.admin-nav{
+  position: sticky;
+}
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f9fc;
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+  width: 270px;
+  background: linear-gradient(to bottom, #00bcd4, #2196f3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Admin Header */
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.admin-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Container for name and role */
+.admin-name-role {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.admin-fullname {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.1;
+  opacity: 0.85;
+}
+
+.admin-subtitle {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* Sidebar Navigation */
+.admin-nav .nav-link {
+  display: block;
+  color: white;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s, color 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.admin-nav .nav-link:hover,
+.admin-nav .nav-link.active {
+  background-color: white;
+  color: #2196f3;
+}
+
+/* Main content area */
+.admin-main {
+  flex: 1;
+  padding: 40px;
+  overflow-x: hidden;
+  background-color: #f7f9fc;
+}
+
+.admin-dashboard-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.upcoming-box {
+  margin-top: 30px;
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-radius: 10px;
+  color: #0d47a1;
+}
+
+.admin-scroll-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+}
+.dashboard-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.dashboard-card {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

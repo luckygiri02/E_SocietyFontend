@@ -1,0 +1,132 @@
+.gallery-container {
+    padding: 60px 40px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+  }
+  
+  /* Banner / Header */
+  .gallery-banner {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .gallery-banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #2d2d2d;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-banner p {
+    font-size: 20px;
+    color: #666;
+  }
+  
+  /* Grid Layout */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  /* Image Cards */
+  .gallery-card {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gallery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .gallery-card h3 {
+    margin: 16px 0;
+    font-size: 22px;
+    color: #1e40af;
+    font-weight: 600;
+  }
+  
+  /* About Section */
+  .about-section {
+    background: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 60px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  .about-section h2 {
+    font-size: 32px;
+    color: #1f2937;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    color: #555;
+    font-size: 18px;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  
+  .about-section button {
+    background-color: #1e40af;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .about-section button:hover {
+    background-color: #374adf;
+  }
+  
+  /* Testimonials */
+  .testimonial-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .testimonial-section h2 {
+    font-size: 32px;
+    color: #1e293b;
+    margin-bottom: 30px;
+  }
+  
+  .testimonial-box {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .testimonial-box p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-box span {
+    color: #888;
+    font-size: 16px;
+  }
+  

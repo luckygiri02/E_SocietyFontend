@@ -1,0 +1,92 @@
+.complaint-page {
+    display: flex;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .sidebar1 {
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    color: white;
+    width: 180px;
+    font-size: large;
+    min-height: 100vh;
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .sidebar1 h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar1 nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding: 2rem;
+    background: #c3c1c1;
+  }
+  
+  .form-section h2 {
+    color: #131213;
+    margin-bottom: 1rem;
+  }
+  
+  .complaint-form {
+    background: #fdf9f6;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .complaint-form .row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .complaint-form input,
+  .complaint-form select,
+  .complaint-form textarea {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .profile-panel {
+    width: 180px;
+    text-align: center;
+    background: #fdfdfd;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+    padding: 2rem 1rem;
+  }
+  
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
