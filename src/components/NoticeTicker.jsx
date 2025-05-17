@@ -11,7 +11,7 @@ const NoticeTicker = () => {
     const fetchNotices = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_BaseURL_API}/api/notices`);
-        debugger;
+        
         if (!response.ok) {
           throw new Error('Failed to fetch notices');
         }

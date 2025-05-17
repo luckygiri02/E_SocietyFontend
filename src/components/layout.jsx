@@ -1,37 +1,34 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Sidebar from './sidebar';
-import EventPhoto from './Eventphoto';
+import Sidebar from './Sidebar';
+import EventPhoto from './EventPhoto';
 import NoticeTicker from './NoticeTicker';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
-import './media.css'
-import './Layout.css'; // External CSS
-//fix layout filename 
+import './Layout.css';
+
 const Layout = () => {
   return (
-    <div className="layout1">
+    <div className="layout-container">
       {/* Top Navbar */}
       <Navbar />
 
-      {/* Main Body */}
-      <div className="main-content1">
-        <div className="sidebar12">
+      {/* Main Content Area */}
+      <div className="main-content-wrapper">
+        {/* Sidebar - Will stack on mobile */}
+        <aside className="sidebar-container">
           <Sidebar />
-        </div>
+        </aside>
 
-        <div className="content1">
-          {/* Use the component instead of hardcoded section */}
-
+        {/* Primary Content */}
+        <main className="content-area">
           <NoticeTicker />
           <EventPhoto />
-
-         
-
-         
-        </div>
+          <Outlet /> {/* For nested routes */}
+        </main>
       </div>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
