@@ -40,7 +40,7 @@ const AboutUs = () => {
     </div>
     <div className="pillar-card">
   
-  <h3>Ms. Himanshi Patiadr</h3>
+  <h3>Ms. Himanshi Patidar</h3>
   <p className="role">Director of Community Relations</p>
   <p className="bio">Focused on resident engagement, events, and communication.</p>
 </div>

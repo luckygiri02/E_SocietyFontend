@@ -86,7 +86,7 @@
 }
 
 .dropdown {
-  /* position: absolute; */
+  position: absolute;
   right: 0;
   top: 110%;
   width: 220px;
@@ -206,7 +206,9 @@
     flex-direction: column;
     align-items: flex-start;
   }
-
+  .dropdown {
+    position:relative;
+  }
   .menu-section {
     flex-direction: column;
     align-items: flex-start;
