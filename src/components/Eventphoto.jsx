@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./EventPhotos.css";
-import './media.css'
 
 const EventPhoto = () => {
   const [latestEvent, setLatestEvent] = useState(null);
@@ -10,39 +9,45 @@ const EventPhoto = () => {
   useEffect(() => {
     const fetchLatestEvent = async () => {
       try {
-     
         setLoading(true);
         const response = await fetch(`${import.meta.env.VITE_BaseURL_API}/api/events`);
-        
-        if (!response.ok) {
-          throw new Error("Failed to fetch events");
-        }
-        
-        const data = await response.json();
-        
-        // Filter previous events and sort by date (newest first)
-        const previousEvents = data.events
-        .filter(event => event.type.toLowerCase() === "previous")
 
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        if (previousEvents.length > 0) {
-          // Get the most recent previous event
-          const latest = previousEvents[0];
-          
-          // If the event has images, get the first one
-          if (latest.images && latest.images.length > 0) {
-            const imageUrl = `${import.meta.env.VITE_BaseURL_API}/api/events/media/${latest._id}/image/0`;
-            setLatestEvent({
-              title: latest.title,
-              imageUrl: imageUrl
-            });
-          }
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
-        setError(null);
+
+        const data = await response.json();
+
+        const previousEvents = data.events
+          .filter(event => event.type?.toLowerCase() === "previous")
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        if (previousEvents.length > 0) {
+          const latest = previousEvents[0];
+
+          const hasImages = (latest.images?.length > 0) || (latest.mediaUrls?.images?.length > 0);
+
+          const imageUrls =
+            latest.mediaUrls?.images?.map(img =>
+              img.startsWith('/')
+                ? `https://e-society-n6ky.onrender.com${img}`
+                : img
+            ) ||
+            (latest.images?.map((_, i) =>
+              `https://e-society-n6ky.onrender.com/api/events/media/${latest._id}/image/${i}`
+            ) || []);
+
+          setLatestEvent({
+            ...latest,
+            hasImages,
+            imageUrls,
+          });
+
+          console.log('Image URLs:', imageUrls);
+        } else {
+          setLatestEvent(null);
+        }
       } catch (err) {
-        console.error("Error fetching events:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -54,53 +59,65 @@ const EventPhoto = () => {
 
   if (loading) {
     return (
-      <section className="event-photo1">
-        <h1>Last Event Photo</h1>
-        <div className="loading">Loading...</div>
+      <section className="event-photo">
+        <h2>Loading latest event...</h2>
+        <div className="spinner"></div>
       </section>
     );
   }
 
   if (error) {
     return (
-      <section className="event-photo1">
-        <h1>Last Event Photo</h1>
-        <div className="error">Error: {error}</div>
+      <section className="event-photo error">
+        <h2>Error loading event</h2>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>Retry</button>
       </section>
     );
   }
 
   return (
-    <section className="event-photo1">
-    <h1>{latestEvent ? `Last Event: ${latestEvent.title}` : "Last Event Photos"}</h1>
-    <div className="event-photo-container">
-      {latestEvent ? (
+    <section className="event-photo">
+      <h2>{latestEvent ? `Latest Event: ${latestEvent.title}` : "No Events Found"}</h2>
+
+      {latestEvent && (
         <>
-          <img 
-            src={latestEvent.imageUrl} 
-            alt={`Event 1: ${latestEvent.title}`} 
-            className="event-image"
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = "/placeholder-event.jpg";
-            }}
-          />
-          <img 
-            src={latestEvent.imageUrl2 || latestEvent.imageUrl} 
-            alt={`Event 2: ${latestEvent.title}`} 
-            className="event-image"
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = "/placeholder-event.jpg";
-            }}
-          />
+          <div className="event-meta">
+            <p>Date: {new Date(latestEvent.date).toLocaleDateString()}</p>
+            <p>{latestEvent.description}</p>
+          </div>
+
+          <div className="event-images">
+            {latestEvent.hasImages ? (
+              latestEvent.imageUrls.slice(0, 2).map((url, index) => (
+                <div key={index} className="event-image-container">
+                  <img
+                    src={url}
+                    alt={`${latestEvent.title} - ${index + 1}`}
+                    onError={(e) => {
+                      e.target.src = "/placeholder-event.jpg";
+                      console.error(`Failed to load image: ${url}`);
+                    }}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className="no-images">
+                <img src="/placeholder-event.jpg" alt="No images available" />
+                <p>No images available for this event</p>
+              </div>
+            )}
+          </div>
         </>
-      ) : (
-        <p className="no-events1">No previous events found</p>
       )}
-    </div>
-  </section>
-  
+
+      {!latestEvent && (
+        <div className="no-events">
+          <img src="/placeholder-event.jpg" alt="No events found" />
+          <p>No previous events available</p>
+        </div>
+      )}
+    </section>
   );
 };
 

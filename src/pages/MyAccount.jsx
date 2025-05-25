@@ -36,6 +36,7 @@ const MyAccount = () => {
         setEditMode(true);
         setItemId(found._id);
         setFormData({ ...found });
+        
       }
     } catch (err) {
       console.error("Error fetching user", err);
