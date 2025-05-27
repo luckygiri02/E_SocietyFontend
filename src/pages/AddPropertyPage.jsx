@@ -391,16 +391,7 @@ const AddPropertyPage = () => {
               )}
               
               {/* Other Properties Section */}
-              {otherProperties.length > 0 && (
-                <div className="property-section">
-                  <h2>Available Properties</h2>
-                  <div className="property-grid">
-                    {otherProperties.map(property => 
-                      renderPropertyCard(property, false)
-                    )}
-                  </div>
-                </div>
-              )}
+              {/*  */}
               
               {properties.length === 0 && (
                 <div className="no-properties">No properties found</div>
