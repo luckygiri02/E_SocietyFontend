@@ -43,7 +43,7 @@ const EventPhoto = () => {
             imageUrls,
           });
 
-          console.log('Image URLs:', imageUrls);
+          
         } else {
           setLatestEvent(null);
         }

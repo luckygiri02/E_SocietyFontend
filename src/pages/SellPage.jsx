@@ -8,36 +8,31 @@ const SellPage = () => {
   const [loading, setLoading] = useState(true);
   const [selectedProperty, setSelectedProperty] = useState(null);
 
-  // Fetch properties from backend based on mobile number
+  // ✅ Fetch all properties from backend
   const fetchProperties = async () => {
-    const mobileNumber = localStorage.getItem('loggedInMobile');
-    if (!mobileNumber) {
-      setError("Mobile number not found");
-      setLoading(false);
-      return;
-    }
-
     setLoading(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_BaseURL_API}/api/properties/user/${mobileNumber}`);
+      const response = await fetch(`${import.meta.env.VITE_BaseURL_API}/api/properties`);
       if (!response.ok) {
         throw new Error("Failed to fetch properties");
       }
 
       const data = await response.json();
-      
-      // Process properties with proper media URLs
+
+      // Add media URLs
       const propertiesWithMedia = data.properties.map(property => ({
         ...property,
-        imageUrls: property.images?.map((_, index) => 
-          `${import.meta.env.VITE_BaseURL_API}/api/properties/media/${property._id}/image/${index}?${Date.now()}`),
-        videoUrls: property.videos?.map((_, index) => 
-          `${import.meta.env.VITE_BaseURL_API}/api/properties/media/${property._id}/video/${index}?${Date.now()}`),
-        thumbnailUrl: property.images?.length > 0 
+        imageUrls: property.images?.map((_, index) =>
+          `${import.meta.env.VITE_BaseURL_API}/api/properties/media/${property._id}/image/${index}?${Date.now()}`
+        ),
+        videoUrls: property.videos?.map((_, index) =>
+          `${import.meta.env.VITE_BaseURL_API}/api/properties/media/${property._id}/video/${index}?${Date.now()}`
+        ),
+        thumbnailUrl: property.images?.length > 0
           ? `${import.meta.env.VITE_BaseURL_API}/api/properties/media/${property._id}/image/0?${Date.now()}`
           : '/placeholder-property.jpg'
       }));
-      
+
       setProperties(propertiesWithMedia);
       setError(null);
     } catch (error) {
@@ -71,57 +66,59 @@ const SellPage = () => {
       </section>
 
       <section className="property-list">
-        <h2>Your Properties</h2>
+        <h2>All Properties</h2>
 
         {loading && <div className="loading-spinner">Loading properties...</div>}
         {error && <p className="error-message">{error}</p>}
 
-        {!loading && !error && properties.length === 0 && (
-          <div className="no-properties">
-            <p>No properties found.</p>
-            <Link to="/add-property">
-              <button className="cta-button">Add Your First Property</button>
-            </Link>
-          </div>
-        )}
-
-        <div className="property-grid">
-          {properties.map((property) => (
-            <div
-              key={property._id}
-              className="property-card"
-              onClick={() => handlePropertyClick(property)}
-            >
-              <div className="property-image-container">
-                <img 
-                  src={property.thumbnailUrl} 
-                  alt="Property" 
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/placeholder-property.jpg';
-                  }}
-                />
-                <div className="media-badges">
-                  {property.imageUrls?.length > 0 && (
-                    <span className="image-badge">
-                      {property.imageUrls.length} {property.imageUrls.length === 1 ? 'Image' : 'Images'}
-                    </span>
-                  )}
-                  {property.videoUrls?.length > 0 && (
-                    <span className="video-badge">
-                      {property.videoUrls.length} {property.videoUrls.length === 1 ? 'Video' : 'Videos'}
-                    </span>
-                  )}
+        {!loading && !error && (
+          properties.length > 0 ? (
+            <div className="property-grid">
+              {properties.map((property) => (
+                <div
+                  key={property._id}
+                  className="property-card"
+                  onClick={() => handlePropertyClick(property)}
+                >
+                  <div className="property-image-container">
+                    <img 
+                      src={property.thumbnailUrl} 
+                      alt="Property" 
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/placeholder-property.jpg';
+                      }}
+                    />
+                    <div className="media-badges">
+                      {property.imageUrls?.length > 0 && (
+                        <span className="image-badge">
+                          {property.imageUrls.length} {property.imageUrls.length === 1 ? 'Image' : 'Images'}
+                        </span>
+                      )}
+                      {property.videoUrls?.length > 0 && (
+                        <span className="video-badge">
+                          {property.videoUrls.length} {property.videoUrls.length === 1 ? 'Video' : 'Videos'}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="property-details">
+                    <h3>{property.type || "Property"}</h3>
+                    <p><strong>Price:</strong> ₹{property.price}</p>
+                    <p><strong>Location:</strong> {property.wing} - {property.flatNo}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="property-details">
-                <h3>{property.type || "Property"}</h3>
-                <p><strong>Price:</strong> ₹{property.price}</p>
-                <p><strong>Location:</strong> {property.wing} - {property.flatNo}</p>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          ) : (
+            <div className="no-properties">
+              <p>No properties found.</p>
+              <Link to="/add-property">
+                <button className="cta-button">Add Your First Property</button>
+              </Link>
+            </div>
+          )
+        )}
       </section>
 
       {/* Property Details Modal */}
